@@ -9,7 +9,7 @@ for (var i=0; i<array.length;i++) {
 
 
   var distance = getDistanceFromLatLonInM(point.lat,point.lng,latlng.lat,latlng.lng);
-  if (distance <= 50000) {
+  if (distance <= 25) {
     array[i].setIcon(testMarkerGreen);
   } else {
     array[i].setIcon(testMarkerRed) .bindPopup("Too Far");

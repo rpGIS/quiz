@@ -51,3 +51,8 @@ var testMarkerRed = L.AwesomeMarkers.icon({
       icon: 'play',
       markerColor: 'green'
     });
+
+    var testMarkerBlue = L.AwesomeMarkers.icon({
+      icon: 'play',
+      markerColor: 'blue'
+    });

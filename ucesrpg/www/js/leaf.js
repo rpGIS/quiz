@@ -37,7 +37,7 @@ function loadquestionlayer(questiondata) {
     pointToLayer: function (feature, latlng) {
 
 
-        question_point = L.marker(latlng, {icon:testMarkerRed});
+        question_point = L.marker(latlng, {icon:testMarkerBlue});
         quiz_array.push(question_point);
         return question_point
 
