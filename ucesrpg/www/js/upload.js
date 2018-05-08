@@ -1,11 +1,9 @@
 function startDataUpload() {
-      alert ("start data upload");
       // now get the radio button values
       var question = document.getElementById("question").value;
       var correct = document.getElementById("hidden").value;
       var score = document.querySelector('input[name="answer"]:checked').value;
       var postString = "question="+question+"&entered="+score+"&correct="+correct;
-      alert(score);
       // now get the checkbox values - separate them with a | so that they can be
       // split later on if necessary
       processData(postString);

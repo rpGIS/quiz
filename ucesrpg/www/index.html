@@ -72,11 +72,20 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Quiz App</span>
           <div class="mdl-layout-spacer"></div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="" onclick='getQuestions();return false;'><i class="mdl-color-text--blue-400
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="allq"><i class="mdl-color-text--blue-400
           material-icons" role="presentation">explore</i>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="" onclick='Within();return false;'><i class="mdl-color-text--green-400
+        </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="allq">
+            <li class="mdl-menu__item" href="" onclick='getQuestions();return false;'>Load All Questions</li>
+
+          </ul>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="nearby"><i class="mdl-color-text--green-400
     material-icons" role="presentation">track_changes</i>
           </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="nearby">
+            <li class="mdl-menu__item" href="" onclick='Within();return false;'>Get Nearby Questions</li>
+
+          </ul>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdl-color-text--red-400
       material-icons" role="presentation">help</i>
@@ -85,6 +94,7 @@
 
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
             <li class="mdl-menu__item" href="#" onclick="window.open('userguide.html', '_system');">User Guide</li>
+
           </ul>
         </div>
       </header>
@@ -97,10 +107,10 @@
       <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
       integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
       crossorigin=""></script>
-      <script src="./js/leaf.js"></script>
+      <script src="./js/appActivity.js"></script>
       <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
       <script src="leaflet.awesome-markers.js"></script>
-      <script src="./js/script.js"></script>
+      <script src="./js/location.js"></script>
       <script src="./js/markers.js"></script>
       <script src="./js/upload.js"></script>
 

@@ -1,20 +1,16 @@
 
-// create a variable that will hold the XMLHttpRequest() - this must be done outside a function so that all the functions can use the same variable var client;
-
-// and a variable that will hold the layer itself – we need to do this outside the function so that we can use it to remove the layer later on var questionlayer;
+//creates an array to fill with data sourced from the geoJSON later
 var quiz_array =[];
-// create the code to get the questions data using an XMLHttpRequest
+// gets the questions using an XMLHttpRequest
 function getQuestions() {
   client = new XMLHttpRequest();
-
+//specifies the database to get data from
 client.open('GET','http://developer.cege.ucl.ac.uk:30286/getGeoJSON/quiz/geom');
   client.onreadystatechange = questionResponse;
-  // note don't use questionResponse() with brackets as that doesn't work
   client.send();
 }
-// create the code to wait for the response from the data server, and process the response once it is received
 function questionResponse() {
-// this function listens out for the server to say that the data is ready - i.e. has state 4
+//checks to see if the server is ready
 if (client.readyState == 4) {
   // once the data is ready, process the data
   var questiondata = client.responseText;
@@ -36,37 +32,14 @@ function loadquestionlayer(questiondata) {
     // use point to layer to create the points
     pointToLayer: function (feature, latlng) {
 
-
+// creates markers from the coordinates and adds them to the array
         question_point = L.marker(latlng, {icon:testMarkerBlue});
         quiz_array.push(question_point);
         return question_point
 
     },
 
-
+//adds all the points to the map
 }).addTo(mymap);
 mymap.fitBounds(questionlayer.getBounds());
-}
-
-var xhr; // define the global variable to process the AJAX request
-function callDivChange() {
-xhr = new XMLHttpRequest();
-var filename = document.getElementById("filename").value;
-xhr.open("GET", filename, true);
-xhr.onreadystatechange = processDivChange;
-try {
- xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-}
-catch (e) {
-}
-xhr.send();
-}
-function processDivChange() {
-if (xhr.readyState < 4) // while waiting response from server
- document.getElementById('ajaxtest').innerHTML = "Loading...";
- else if (xhr.readyState === 4) { // 4 = Response from server has been completely loaded.
- if (xhr.status == 200 && xhr.status < 300)
-// http status between 200 to 299 are all successful
- document.getElementById('ajaxtest').innerHTML = xhr.responseText;
- }
 }

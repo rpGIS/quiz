@@ -1,14 +1,28 @@
-
-// load the map
-var mymap = L.map('mapid').setView([51.5245, -0.1339], 14);
-// load the tiles
-L.tileLayer('https://api.mapbox.com/styles/v1/rpgis/cjdg3ldlug2552skafmvwpmoh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicnBnaXMiLCJhIjoiY2pkZzNqNnFpMGV2dDMzcmw5dmdxZWJvdCJ9.ma-X-QU8z-LjUdLr1mMqQw', {maxZoom: 18,attribution: 'Map data &copy; <ahref="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+var basic= L.tileLayer('https://api.mapbox.com/styles/v1/rpgis/cjdg3ldlug2552skafmvwpmoh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicnBnaXMiLCJhIjoiY2pkZzNqNnFpMGV2dDMzcmw5dmdxZWJvdCJ9.ma-X-QU8z-LjUdLr1mMqQw', {maxZoom: 18,attribution: 'Map data &copy; <ahref="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'
   +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-  id: 'mapbox.streets'
+  id: 'mapbox.streets'}),
+ satellite = L.tileLayer('https://api.mapbox.com/styles/v1/rpgis/cjgxyw85t007w2rqdu4pagook/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicnBnaXMiLCJhIjoiY2pkZzNqNnFpMGV2dDMzcmw5dmdxZWJvdCJ9.ma-X-QU8z-LjUdLr1mMqQw', {maxZoom: 18,attribution: 'Map data &copy; <ahref="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'
+    +
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    id: 'mapbox.satellite'});
 
-}).addTo(mymap);
+// load the map
+var mymap = L.map('mapid',{
+  center: [51.5245, -0.1339],
+    zoom: 14,
+    layers: [basic, satellite]
+});
+
+var base ={
+  "Satellite": satellite,
+  "Basic": basic
+};
+
+L.control.layers(base).addTo(mymap);
+
 
 var current_position, current_accuracy;
 
