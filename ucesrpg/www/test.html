@@ -1,0 +1,51 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Question</title>
+</head>
+<body>
+  <script>
+  function getQuestions() {
+    client = new XMLHttpRequest();
+
+  client.open('GET','http://developer.cege.ucl.ac.uk:30286/getGeoJSON/quiz/geom');
+    client.onreadystatechange = questionResponse;
+    // note don't use questionResponse() with brackets as that doesn't work
+    client.send();
+  }
+  // create the code to wait for the response from the data server, and process the response once it is received
+  function questionResponse() {
+  // this function listens out for the server to say that the data is ready - i.e. has state 4
+  if (client.readyState == 4) {
+    // once the data is ready, process the data
+    var questiondata = client.responseText;
+    loadquestionlayer(questiondata);
+    }
+
+  }
+</script>
+<body>
+<form id="NPSform" style= "text-align:center" onsubmit="return getScore();">
+    <input type="radio" name="scores" checked id="1" value="1">
+    <input type="radio" name="scores" id="3" value="3"> 3
+    <input type="radio" name="scores" id="4" value="4"> 4
+    <input type="submit" name="mysubmit" value="Submit"/>
+
+  </form>
+<script>
+function getScore(){
+        var score = document.querySelector('input[name="scores"]:checked').value;
+        if(!score){
+          alert('No score was selected. Try again.');
+          return false;
+        }
+        else{
+          alert(score + ' was selected!');
+        }
+      }
+    </script>
+  </body>
+
+</html>
