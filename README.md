@@ -12,7 +12,7 @@ This app provides a display for the previously uploaded question, as well as the
 
 ![alt text](https://github.com/rpGIS/server/blob/master/chart.png)
 
-QR Coded to Download the App!
+QR Code to Download the App!
 
 # Links to other repositories
 **[Questions](https://github.com/rpGIS/questions)**
