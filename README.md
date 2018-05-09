@@ -10,8 +10,9 @@ This app provides a display for the previously uploaded question, as well as the
 6) Submit your answer by hitting the submit button
 7) Reload the questions and repeat the process to answer another question
 
-QR Code to Download the App!
 ![alt text](https://github.com/rpGIS/server/blob/master/chart.png)
+
+QR Coded to Download the App!
 
 # Links to other repositories
 **[Questions](https://github.com/rpGIS/questions)**
