@@ -1,3 +1,5 @@
+
+//creates two options for styles from mapbox to be chosen by the user
 var basic= L.tileLayer('https://api.mapbox.com/styles/v1/rpgis/cjdg3ldlug2552skafmvwpmoh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicnBnaXMiLCJhIjoiY2pkZzNqNnFpMGV2dDMzcmw5dmdxZWJvdCJ9.ma-X-QU8z-LjUdLr1mMqQw', {maxZoom: 18,attribution: 'Map data &copy; <ahref="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,'
   +
@@ -9,7 +11,7 @@ var basic= L.tileLayer('https://api.mapbox.com/styles/v1/rpgis/cjdg3ldlug2552ska
       'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     id: 'mapbox.satellite'});
 
-// load the map
+// load the map and center it over UCL
 var mymap = L.map('mapid',{
   center: [51.5245, -0.1339],
     zoom: 14,
@@ -20,7 +22,7 @@ var base ={
   "Satellite": satellite,
   "Basic": basic
 };
-
+//add the layer variable to the map
 L.control.layers(base).addTo(mymap);
 
 
